@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JATIN PANDEY | AgliClass</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#080d1b;color:#f8fafc}
+header{padding:22px 7%;border-bottom:1px solid #253047;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:21px;font-weight:bold;color:#93c5fd}
+.tag{color:#a5b4fc;font-size:12px}
+main{max-width:1000px;margin:35px auto;padding:0 18px}
+h1{font-size:clamp(28px,5vw,44px);margin-bottom:8px}
+.sub{color:#94a3b8;line-height:1.6}
+.panel{background:linear-gradient(135deg,#151f36,#101629);border:1px solid #293957;border-radius:20px;padding:24px;margin:20px 0}
+.label{font-size:13px;color:#94a3b8}
+.clock{font-size:clamp(32px,7vw,52px);font-weight:bold;margin:12px 0;color:#bfdbfe}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card{background:#111a2d;border:1px solid #293957;border-radius:16px;padding:20px}
+.card h2{font-size:18px}
+.value{font-size:22px;font-weight:bold;color:#93c5fd}
+.notice{color:#fcd34d;font-size:13px;line-height:1.6}
+footer{text-align:center;padding:28px;color:#64748b;font-size:13px}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">JP. <span style="color:white">AgliClass</span></div>
+  <div class="tag">STUDENT TIMETABLE</div>
+</header>
+<main>
+  <p class="tag">DDU GORAKHPUR UNIVERSITY · B.TECH AI &amp; DS</p>
+  <h1>Hey, Jatin! 👋</h1>
+  <p class="sub">Your classes, your schedule. Know what's happening now and what's next.</p>
+
+  <section class="panel">
+    <div class="label" id="today">TODAY</div>
+    <div class="clock" id="clock">00:00:00</div>
+    <div class="sub">Your local time · Live updates</div>
+  </section>
+
+  <section class="cards">
+    <div class="card">
+      <div class="label">📚 CURRENT CLASS</div>
+      <h2 id="current">Timetable needed</h2>
+      <p class="sub" id="currentTime">Exact class timings will appear here.</p>
+    </div>
+    <div class="card">
+      <div class="label">⏭️ UP NEXT</div>
+      <h2 id="next">Schedule pending</h2>
+      <p class="sub" id="countdown">Add the verified timetable to activate.</p>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>📅 Weekly Timetable</h2>
+    <p class="sub">Your class schedule will be displayed here.</p>
+    <p class="notice">Timetable timings are not yet verified. They will be added without changes once the original schedule is confirmed.</p>
+  </section>
+</main>
+<footer>Made with ❤️ by JATIN PANDEY</footer>
+<script>
+function updateClock(){
+  const now=new Date();
+  document.getElementById('clock').textContent=
+    now.toLocaleTimeString('en-IN',{hour12:true});
+  document.getElementById('today').textContent=
+    now.toLocaleDateString('en-IN',{weekday:'long',day:'numeric',month:'long',year:'numeric'}).toUpperCase();
+}
+updateClock();
+setInterval(updateClock,1000);
+</script>
+</body>
+</html>
